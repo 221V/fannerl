@@ -25,5 +25,9 @@
                   stdlib
                  ]},
   {mod, { fannerl_app, []}},
-  {env, []}
+  {env, [
+          % change next path for your
+          {fannerl_priv, "/home/your_user/your_fannerl_dir/priv"},
+          {fannerl_datasets,"/home/your_user/your_fannerl_dir/datasets"}
+        ]}
  ]}.

@@ -245,6 +245,7 @@
 %% --------------------------------------------------------------------- %%
 -spec start() -> pid().
 start() ->
+    case application:start(fannerl) of ok -> true; _ -> false end,
     proc_lib:start_link(?MODULE, init, [module]).
 
 %% --------------------------------------------------------------------- %%
@@ -1580,7 +1581,8 @@ call(Instance, Msg) ->
 
 %% @private
 init(Type) ->
-    PrivDir = code:priv_dir(fannerl),
+    %PrivDir = code:priv_dir(fannerl),
+    {ok, PrivDir} = application:get_env(fannerl, fannerl_priv),
     Program = filename:join(PrivDir, "fannerl"),
     Success =
 	case Type of

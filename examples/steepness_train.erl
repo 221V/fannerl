@@ -31,7 +31,8 @@ run() ->
     SteepnessStep = 0.1,
     SteepnessEnd = 20,
 
-    DatasetDir = code:lib_dir(fannerl, priv),
+    %DatasetDir = code:lib_dir(fannerl, priv),
+    {ok, DatasetDir} = application:get_env(fannerl, fannerl_priv),
 
     fannerl:start(),
 

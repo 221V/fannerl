@@ -28,7 +28,8 @@ run() ->
     DesiredError = 0.0001,
     
     io:format("Reading train from file~n", []),
-    DatasetDir = code:lib_dir(fannerl, datasets),
+    %DatasetDir = code:lib_dir(fannerl, datasets),
+    {ok, DatasetDir} = application:get_env(fannerl, fannerl_datasets),
     Train = fannerl:read_train_from_file(filename:join(DatasetDir, "mushroom.train")),
     TrainParams = fannerl:get_train_params(Train),
     

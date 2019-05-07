@@ -1,0 +1,17 @@
+
+cmake .
+sudo make install
+sudo ldconfig
+
+./rebar compile
+
+% copy all files from /ebin to /examples
+% for you can run anything from eshell after run erl
+
+erl
+robot:run().
+
+% enjoy! :)
+
+%% Erlang/OTP 21 [erts-10.3.4]
+
